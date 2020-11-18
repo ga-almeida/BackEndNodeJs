@@ -24,6 +24,7 @@
     "prettier"
   ],
   "rules": {
+    "no-return-await": "off",
     "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/no-var-requires": "off",
     "no-useless-constructor": "off",
