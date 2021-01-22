@@ -9,7 +9,7 @@ let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
 let updateProfileService: UpdateProfileService;
 
-describe('UpdateProfileService', () => {
+describe('UpdateProfile', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
@@ -18,6 +18,16 @@ describe('UpdateProfileService', () => {
       fakeUsersRepository,
       fakeHashProvider,
     );
+  });
+
+  it('should not be able update the profile from non-existing user', async () => {
+    await expect(
+      updateProfileService.execute({
+        user_id: 'profile-non-existing',
+        email: 'gabriel@profile.com',
+        name: 'Gabriel Almeida',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
   });
 
   it('should be able update the profile', async () => {
