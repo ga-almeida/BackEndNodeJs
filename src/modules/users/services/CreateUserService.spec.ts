@@ -20,15 +20,15 @@ describe('CreateUser', () => {
     );
   });
 
-  // it('should be able to create a new user', async () => {
-  //   const user = await createUsersService.execute({
-  //     name: 'Gabriel Almeida dos Santos',
-  //     email: 'gabrielsantos.almeida@hotmail.com',
-  //     password: '1234',
-  //   });
+  it('should be able to create a new user', async () => {
+    const user = await createUsersService.execute({
+      name: 'Gabriel Almeida dos Santos',
+      email: 'gabrielsantos.almeida@hotmail.com',
+      password: '1234',
+    });
 
-  //   expect(user).toHaveProperty('id');
-  // });
+    expect(user).toHaveProperty('id');
+  });
 
   it('should not be able to create a new user widh same email from another', async () => {
     await createUsersService.execute({
